@@ -57,7 +57,3 @@ Target currency (USD/EUR/CAD): EUR
 
 - The application only supports USD, EUR, and CAD.
 - Conversion rates are hardcoded and may not reflect real-time rates.
-
-## License
-
-This project is licensed under the MIT License.
