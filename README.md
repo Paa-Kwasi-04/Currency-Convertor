@@ -1,59 +1,36 @@
-# Currency Converter
-
-This is a simple Python-based currency converter application that allows users to convert amounts between three currencies: USD, EUR, and CAD.
-
 ## Features
 
-- Convert between USD, EUR, and CAD.
-- Handles invalid inputs for amounts and currencies gracefully.
-- Provides accurate conversion rates.
+- Converts amounts between USD, EUR, and CAD.
+- Utilizes live exchange rates via the ForexRate API.
+- Simple and interactive command-line interface.
 
-## How to Use
+## API Key Setup
 
-1. Run the script `app.py`.
-2. Enter the amount you want to convert.
-3. Specify the source currency (USD, EUR, or CAD).
-4. Specify the target currency (USD, EUR, or CAD).
-5. The application will display the converted amount.
+To use the application, you need an API key for the ForexRate API. Follow these steps:
 
-## Conversion Rates
+1. Obtain an API key from [ForexRate API](https://www.forexrateapi.com/).
+2. Create a file named `api_key.py` in the project directory.
+3. Add the following line to the file:
+   ```python
+   API_KEY = 'your_api_key_here'
+   ```
 
-The application uses the following predefined conversion rates:
+## Example Usage
 
-| From/To | Rate  |
-| ------- | ----- |
-| USD/EUR | 0.92  |
-| EUR/USD | 1.087 |
-| USD/CAD | 1.44  |
-| CAD/USD | 0.694 |
-| EUR/CAD | 1.56  |
-| CAD/EUR | 0.641 |
-
-## Example
-
-```plaintext
+```bash
+$ python app.py
 Enter the amount: 100
 Source currency (USD/EUR/CAD): USD
 Target currency (USD/EUR/CAD): EUR
-100.00 USD is equal to 92.00 EUR
+100.00 USD is equal to 92.50 EUR
 ```
 
-## Requirements
+## Troubleshooting
 
-- Python 3.x
+- **Invalid API Key**: Ensure your API key is correctly set in `api_key.py`.
+- **Connection Issues**: Verify your internet connection.
+- **Unsupported Currency**: Only USD, EUR, and CAD are supported.
 
-## Running the Application
+## License
 
-1. Save the `app.py` file to your local machine.
-2. Open a terminal or command prompt.
-3. Navigate to the directory containing `app.py`.
-4. Run the script using the command:
-
-   ```bash
-   python app.py
-   ```
-
-## Notes
-
-- The application only supports USD, EUR, and CAD.
-- Conversion rates are hardcoded and may not reflect real-time rates.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
