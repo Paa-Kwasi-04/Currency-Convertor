@@ -1,13 +1,19 @@
-def convertor(source, target, amount):
-    rates = {
-        'USD/EUR': 0.92, 'EUR/USD': 1/0.92,
-        'USD/CAD': 1.44, 'CAD/USD': 1/1.44,
-        'EUR/CAD': 1.56, 'CAD/EUR': 1/1.56
-    }
-    if source == target:
-        return amount
 
-    return amount * rates[f'{source}/{target}']
+from api_key import API_KEY
+import requests
+
+
+def convertor(source, target, amount):
+    url = 'https://api.forexrateapi.com/v1/convert'
+    params = {
+        'api_key': API_KEY,
+        'from': source,
+        'to': target,
+        'amount': amount,
+    }
+
+    response = requests.get(url, params=params)
+    return response.json()['result']
 
 
 def get_amount():
@@ -36,7 +42,6 @@ def main():
     amount = get_amount()
     source_currency = get_currency('Source')
     target_currency = get_currency('Target')
-
     final_amount = convertor(source_currency, target_currency, amount)
     print(f'{amount:.2f} {source_currency} is equal to {final_amount:.2f} {target_currency}')
 
